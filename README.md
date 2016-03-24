@@ -277,7 +277,7 @@ SimfaseDevEnv环境还提供方便的备份与恢复工具。为了方便大家�
 
 ### 恢复Mysql
 
-	import-mysql  db年月日时分秒.sql
+	import-mysql  db-年月日时分秒.sql
 
 此命令将mysql数据直接将 /vagrant/src/backup/mysql/db-年月日时分秒.sql 恢复至当前数据库
 
