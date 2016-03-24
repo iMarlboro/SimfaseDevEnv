@@ -212,11 +212,11 @@ SimfaseDevEnv中的aliases和after.sh仅仅在第一次 vagrant up是载入并�
 ####其他一些Nginx 辅助命令
 另外，提供了其他一些快捷的创建Nginx站点的函数如：
 
-	serve_base domain.app /home/vagrant/Code/path/to/public/directory
+	serve-base domain.app /home/vagrant/Code/path/to/public/directory
 
 以上命令与serve类似，但是不进行index.php 路径rewrite。此类配置方法适用于多文件程序，如wordpress、typecho等等
 
-	serve_symfony2 domain.app /home/vagrant/Code/path/to/public/directory
+	serve-symfony2 domain.app /home/vagrant/Code/path/to/public/directory
 以上命令与serve类似，但是是专门针对symfony2框架的，将index.php的重定向，换成了app_dev.php
 
 
