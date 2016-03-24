@@ -1,0 +1,25 @@
+---
+# ip: "192.168.11.11"
+memory: 1024
+cpus: 1
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/Code
+      to: /home/vagrant/Code
+      #type: nfs
+      #mount_options: 
+      #    - 'nolock,vers=3,udp,noatime'
+# 切记，如果是osx/linux 平台开启nfs, mount_options 需要删除或者一直被注释着，如果是win平台开启nfs,需要同时解除mount_options的注释
+
+# ports:
+#     - send: 8001
+#       to: 80
+#     - send: 44301
+#       to: 443
+#     - send: 33061
+#       to: 3306

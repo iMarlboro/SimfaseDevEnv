@@ -1,0 +1,9 @@
+/vendor
+/.vagrant
+/.idea
+/after.sh
+/aliases
+/SimfaseDevEnv.yaml
+/Vagrantfile
+*~
+.DS_Store
