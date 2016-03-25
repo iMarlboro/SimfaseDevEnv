@@ -147,7 +147,7 @@ map表示宿主机器的目录，to表示SimfaseDevEnv环境目录。
 本部分Win实现NFS，参考了文献[speeding-up-homestead-on-windows-using-nfs](https://websanova.com/blog/laravel/speeding-up-homestead-on-windows-using-nfs)
 
 
-##### 如果通过vagran在线安装插件失败
+##### 如果通过vagrant在线安装插件失败
 毕竟vagrant server在国外，如果因为网络问题安装失败，那么可以将 gem包下载到本地再安装
 
 下载[childprocess](https://rubygems.org/gems/childprocess) ,点击链接进入后，右下侧有下载链接点击下载
