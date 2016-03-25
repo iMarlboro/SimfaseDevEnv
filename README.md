@@ -104,10 +104,11 @@ git clone 后，进入 SimfaseDevEnv目录,执行以下代码来初始化Simfase
 ### 5 配置共享文件夹
 
 
+#### 5.1 Mac/Linux
 SimfaseDevEnv目录下的SimfaseDevEnv.yaml文件文件中的 folders 属性列出了所有你想在 SimfaseDevEnv 环境共享的文件夹列表。这些文件夹中的文件若有变动，他们将会同步在你的本机与 SimfaseDevEnv 环境里。你可以将你需要的共享文件夹都配置进去。
 map表示宿主机器的目录，to表示SimfaseDevEnv环境目录。
 
-如果要开启 NFS，只需要在 folders 中加入一个标识：
+如果要开启 NFS，只需要在SimfaseDevEnv.yaml中的 folders 中加入一个标识 type: nfs：
 
 
 	folders:
@@ -116,12 +117,25 @@ map表示宿主机器的目录，to表示SimfaseDevEnv环境目录。
       	type: nfs
 
 
-
+#### 5.1 Win7/Win10
 如果是Win用户开启NFS，一定要先安装[vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd) 插件，使用如下命令：
 
 	vagrant plugin install vagrant-winnfsd 
+	
+#####可能的情况
 
-还需要增加增加mount_options配置，切记：
+ 部分Win用户可能会提示缺少childprocess,那么还需要先安装childprocess然后再安装vagrant-winnfsd代码如下（按顺执行）：
+
+	vagrant plugin install childprocess
+	vagrant plugin install vagrant-winnfsd 
+
+
+安装完成后可以通过如下命令查看安装的插件列表
+
+	vagrant plugin list
+
+
+注意：最后还需要增加增在SimfaseDevEnv.yaml的 folders中配置mount_options，切记：
 
 		folders:
     		- map: ~/Code
@@ -131,6 +145,24 @@ map表示宿主机器的目录，to表示SimfaseDevEnv环境目录。
       		    - 'nolock,vers=3,udp,noatime'
 
 本部分Win实现NFS，参考了文献[speeding-up-homestead-on-windows-using-nfs](https://websanova.com/blog/laravel/speeding-up-homestead-on-windows-using-nfs)
+
+
+##### 如果通过vagran在线安装插件失败
+毕竟vagrant server在国外，如果因为网络问题安装失败，那么可以将 gem包下载到本地再安装
+
+下载[childprocess](https://rubygems.org/gems/childprocess) ,点击链接进入后，右下侧有下载链接点击下载
+
+下载[vagrant-winnfsd](https://rubygems.org/gems/vagrant-winnfsd),点击链接进入后，右下侧有下载链接点击下载
+
+下载后，在bash中进入下载的目录运行
+
+	vagrant plugin install childprocess-x.x.x.gem 
+	vagrant plugin install vagrant-winnfsd-x.x.x.gem 
+	
+
+> 提示   x.x.x 表示你本次下载的软件的版本号
+
+
 
 ### 6 Bash Aliases
 
